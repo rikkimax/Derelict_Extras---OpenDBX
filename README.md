@@ -1,4 +1,4 @@
-Derelict_Extras---OpenDBX
+Derelict_Extras-OpenDBX
 =========================
 
 Non official Derelict based bindings for OpenDBX.
