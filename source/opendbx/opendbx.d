@@ -46,7 +46,7 @@ private
         static assert(0, "Need to implement OPENDBX libNames for this operating system.");
 }
 
-class DerelictOPENDBXLoader : SharedLibLoader
+class DerelictOpenDBXLoader : SharedLibLoader
 {
 
     protected
@@ -94,14 +94,14 @@ class DerelictOPENDBXLoader : SharedLibLoader
     }
 }
 
-__gshared DerelictOPENDBXLoader DerelictOPENDBX;
+__gshared DerelictOpenDBXLoader DerelictOpenDBX;
 
 shared static this()
 {
-    DerelictOPENDBX = new DerelictOPENDBXLoader();
+    DerelictOpenDBX = new DerelictOpenDBXLoader();
 }
 
 shared static ~this()
 {
-    DerelictOPENDBX.unload();
+    DerelictOpenDBX.unload();
 }
