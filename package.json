@@ -1,0 +1,14 @@
+{
+	"name": "derelict_extras-opendbx",
+	"description": "An example project skeleton",
+	"homepage": "https://github.com/rikkimax/Derelict_Extras---OpenDBX",
+	"authors": [
+		"Richard Andrew Cattermole"
+	],
+	"dependencies": {
+		"derelict-util": ">=0.9.3"
+	},
+	"targetName": "DE_OpenDBX",
+	"targetPath": "lib",
+	"targetType": "library"
+}
