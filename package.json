@@ -1,6 +1,6 @@
 {
 	"name": "derelict_extras-opendbx",
-	"description": "An example project skeleton",
+	"description": "OpenDBX bindings for 1.4.6",
 	"homepage": "https://github.com/rikkimax/Derelict_Extras---OpenDBX",
 	"authors": [
 		"Richard Andrew Cattermole"
