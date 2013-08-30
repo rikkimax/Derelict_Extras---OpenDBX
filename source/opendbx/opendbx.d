@@ -73,6 +73,12 @@ class DerelictOPENDBXLoader : SharedLibLoader
 			bindFunc(cast(void**)&odbx_column_type, "odbx_column_type");
 			bindFunc(cast(void**)&odbx_field_length, "odbx_field_length");
 			bindFunc(cast(void**)&odbx_field_value, "odbx_field_value");
+			
+			bindFunc(cast(void**)&odbx_lo_open, "odbx_lo_open");
+			bindFunc(cast(void**)&odbx_lo_read, "odbx_lo_read");
+			bindFunc(cast(void**)&odbx_lo_write, "odbx_lo_write");
+			bindFunc(cast(void**)&odbx_lo_close, "odbx_lo_close");
+			
 			//bindFunc(cast(void**)&odbxdrv_register, "odbxdrv_register");
 			bindFunc(cast(void**)&_odbx_lib_open, "_odbx_lib_open");
 			bindFunc(cast(void**)&_odbx_lib_close, "_odbx_lib_close");

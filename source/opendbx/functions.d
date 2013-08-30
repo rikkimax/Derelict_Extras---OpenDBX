@@ -57,6 +57,11 @@ extern(C) nothrow
 	alias c_ulong function(odbx_result_t* result, c_ulong pos) da_odbx_field_length;
 	alias char* function(odbx_result_t* result, c_ulong pos) da_odbx_field_value;
 	
+	alias int function(odbx_result_t* result, odbx_lo_t** lo, const char* value) da_odbx_lo_open;
+	alias ssize_t function(odbx_lo_t* lo, void* buffer, size_t buflen) da_odbx_lo_read;
+	alias ssize_t function(odbx_lo_t* lo, void* buffer, size_t buflen) da_odbx_lo_write;
+	alias int function(odbx_lo_t* lo) da_odbx_lo_close;
+	
 	//odbxdrv.h
 	//alias void function(odbx_ops** ops) da_odbxdrv_register;
 	
@@ -87,6 +92,11 @@ __gshared
 	da_odbx_column_type odbx_column_type;
 	da_odbx_field_length odbx_field_length;
 	da_odbx_field_value odbx_field_value;
+	
+	da_odbx_lo_open odbx_lo_open;
+	da_odbx_lo_read odbx_lo_read;
+	da_odbx_lo_write odbx_lo_write;
+	da_odbx_lo_close odbx_lo_close;
 
 	//da_odbxdrv_register odbxdrv_register;
 

@@ -26,16 +26,8 @@ DEALINGS IN THE SOFTWARE.
 
 */
 module derelict.opendbx.types;
-
+public import std.datetime : timeval;
 //api.h
-
-/*
- * From sys/time.h
- */
-struct timeval {
-	long	tv_sec;		/* seconds */
-	long	tv_usec;	/* and microseconds */
-};
 
 /*
  * From inttypes.h
@@ -77,6 +69,8 @@ enum odbxerr {
 	ODBX_ERR_NOTSUP,
 	ODBX_ERR_HANDLE
 };
+
+const ODBX_MAX_ERRNO = 0x0d;
 
 /*
  *  ODBX result/fetch return values
@@ -196,33 +190,33 @@ struct odbx_lo_t
 
 struct odbx_basic_ops
 {
-	int function ( odbx_t* handle, const char* host, const char* port ) init;
-	int function ( odbx_t* handle, const char* database, const char* who, const char* cred, int method ) bind;
-	int function ( odbx_t* handle ) unbind;
-	int function ( odbx_t* handle ) finish;
-	int function ( odbx_t* handle, uint option, void* value ) get_option;
-	int function ( odbx_t* handle, uint option, void* value ) set_option;
-	char* function ( odbx_t* handle ) error;
-	int function ( odbx_t* handle ) error_type;
-	int function ( odbx_t* handle, const char* from, ulong fromlen, char* to, ulong* tolen ) escape;
-	int function ( odbx_t* handle, const char* query, ulong length ) query;
-	int function ( odbx_t* handle, odbx_result_t** result, timeval* timeout, ulong chunk ) result;
-	int function ( odbx_result_t* result ) result_finish;
-	int function ( odbx_result_t* result ) row_fetch;
-	uint64_t function ( odbx_result_t* result ) rows_affected;
-	ulong function ( odbx_result_t* result ) column_count;
-	char* function ( odbx_result_t* result, ulong pos ) column_name;
-	int function ( odbx_result_t* result, ulong pos ) column_type;
-	ulong function ( odbx_result_t* result, ulong pos ) field_length;
-	char* function ( odbx_result_t* result, ulong pos ) field_value;
+	int function(odbx_t* handle, const char* host, const char* port) init;
+	int function(odbx_t* handle, const char* database, const char* who, const char* cred, int method) bind;
+	int function(odbx_t* handle) unbind;
+	int function(odbx_t* handle) finish;
+	int function(odbx_t* handle, uint option, void* value) get_option;
+	int function(odbx_t* handle, uint option, void* value) set_option;
+	char* function(odbx_t* handle) error;
+	int function(odbx_t* handle) error_type;
+	int function(odbx_t* handle, const char* from, ulong fromlen, char* to, ulong* tolen) escape;
+	int function(odbx_t* handle, const char* query, ulong length) query;
+	int function(odbx_t* handle, odbx_result_t** result, timeval* timeout, ulong chunk) result;
+	int function(odbx_result_t* result) result_finish;
+	int function(odbx_result_t* result) row_fetch;
+	uint64_t function(odbx_result_t* result) rows_affected;
+	ulong function(odbx_result_t* result) column_count;
+	char* function(odbx_result_t* result, ulong pos) column_name;
+	int function(odbx_result_t* result, ulong pos) column_type;
+	ulong function(odbx_result_t* result, ulong pos) field_length;
+	char* function(odbx_result_t* result, ulong pos) field_value;
 };
 
 struct odbx_lo_ops
 {
-	int function ( odbx_result_t* result, odbx_lo_t** lo, const char* value ) open;
-	int function ( odbx_lo_t* lo ) close;
-	ssize_t function ( odbx_lo_t* lo, void* buffer, size_t buflen ) read;
-	ssize_t function ( odbx_lo_t* lo, void* buffer, size_t buflen ) write;
+	int function(odbx_result_t* result, odbx_lo_t** lo, const char* value) open;
+	int function(odbx_lo_t* lo) close;
+	ssize_t function(odbx_lo_t* lo, void* buffer, size_t buflen) read;
+	ssize_t function(odbx_lo_t* lo, void* buffer, size_t buflen) write;
 };
 
 struct odbx_ops
